@@ -118,7 +118,7 @@ JWT는 JSON 데이터를 Base64 URL-safe Encode 를 통해 인코딩하여 직
 JWT는 . 을 구분자로 나누어지는 세 가지 문자열의 조합이다.<br>
 . 을 기준으로 좌측부터 Header(헤더), Payload(내용), Signature(서명)를 의미한다.<br><br>
 
-XXXXXX .  YYYYYY  . ZZZZZZ
+XXXXXX .  YYYYYY  . ZZZZZZ <br>
 (Header) (Payload)  (Signature) <br><br>
 
 > * Header 에는 JWT 에서 사용할 타입과 해시 알고리즘의 종류가 담겨있으며,<br>
@@ -132,6 +132,12 @@ XXXXXX .  YYYYYY  . ZZZZZZ
 __실제 디코딩된 JWT는 다음과 같은 구조를 지닌다.__
 
 
-
+> Header <br>
+> { <br>
+> 	"alg" : "HS256",<br>
+> 	"typ" : "JWT"<br>
+> }<br>
+alg : 서명 암호화 알고리즘<br>
+typ : 토큰 유형<br>
 
 
