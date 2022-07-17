@@ -189,5 +189,6 @@ __실제 디코딩된 JWT는 다음과 같은 구조를 지닌다.__
 > * 1. 쿠키/세션과 다르게 JWT는 토큰의 길이가 길어, 인증 요청이 많아질수록 네트워크 부하가 심해진다.<br>
 > * 2. Payload 자체는 암호화되지 않기 때문에 유저의 중요한 정보는 담을 수 없다.<br>
 > * 3. 토큰을 탈취당하면 대처하기 어렵다.<br>
-> 
-[정보](https://inpa.tistory.com/entry/WEB-📚-JWTjson-web-token-란-💯-정리)
+
+
+[인파님 Dev Scorll](https://inpa.tistory.com/entry/WEB-📚-JWTjson-web-token-란-💯-정리)
