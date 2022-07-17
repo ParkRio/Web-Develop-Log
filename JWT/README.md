@@ -102,3 +102,35 @@
 -----
 
 # JWT (JSON Web Token)
+
+JWT(JSON Web Token)란 인증에 필요한 정보들을 암호화시킨 JSON 토큰을 의미한다.<br>
+그리고 JWT 기반 인증은 JWT 토큰(Access Token)을 HTTP 헤더에 실어 서버가 클라이언트를 식별하는 방식이다<br>
+ 
+JWT는 JSON 데이터를 Base64 URL-safe Encode 를 통해 인코딩하여 직렬화한 것이며,<br> 
+토큰 내부에는 위변조 방지를 위해 개인키를 통한 전자서명도 들어있다.<br>
+따라서 사용자가 JWT 를 서버로 전송하면 서버는 서명을 검증하는 과정을 거치게 되며 검증이 완료되면 요청한 응답을 돌려준다.
+
+> Base64 URL-safe Encode 는 일반적인 Base64 Encode 에서 URL 에서 오류없이 사용하도록<br>
+>  '+', '/' 를 각각 '-', '_' 로 표현한 것이다.<br>
+
+## JWT 구조
+
+JWT는 . 을 구분자로 나누어지는 세 가지 문자열의 조합이다.<br>
+. 을 기준으로 좌측부터 Header(헤더), Payload(내용), Signature(서명)를 의미한다.<br><br>
+
+XXXXXX .  YYYYYY  . ZZZZZZ
+(Header) (Payload)  (Signature) <br><br>
+
+> * Header 에는 JWT 에서 사용할 타입과 해시 알고리즘의 종류가 담겨있으며,<br>
+> * Payload 는 서버에서 첨부한 사용자 권한 정보와 데이터가 담겨있다.<br>
+> * 마지막으로 Signature 에는 Header, Payload 를 Base64 URL-safe Encode 를 한 이후<br>
+> * Header 에 명시된 해시함수를 적용하고, 개인키(Private Key)로 서명한 전자서명이 담겨있다.<br>
+> * 전자서명에는 비대칭 암호화 알고리즘을 사용하므로 암호화를 위한 키와 복호화를 위한 키가 다르다.<br>
+> * 암호화(전자서명)에는 개인키를, 복호화(검증)에는 공개키를 사용한다.<br>
+ 
+__실제 디코딩된 JWT는 다음과 같은 구조를 지닌다.__
+
+
+
+
+
