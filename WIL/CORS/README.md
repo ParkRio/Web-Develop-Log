@@ -29,58 +29,36 @@ application/x-www-form-urlencoded <br>
 multipart/form-data <br>
 text/plain <br>
 **__헤더 : Accept, Accept-Language, Content-Language, Content-Type 만 허용 한다.__** <br>
+
 -----
+
 > ❗️**__사전 요청(Preflight Request)__** <br>
 > 사전 요청은 OPTIONS 메서드를 통해 다른 도메인 리소스에 요청이 가능한지 확인하는 작업이다. <br>
 > 요청이 가능한 것을 확인하면 실제 요청을 보낸다.<br>
 > **__Preflight Request__**<br>
-> Origin : 요청 출처<br>
-Access-Control-Request-Method : 실제 요청의 메서드<br>
-Access-Control-Request-Headers : 실제 요청의 추가 헤더<br>
+>
+1.Origin : 요청 출처<br>
+2.Access-Control-Request-Method : 실제 요청의 메서드<br>
+3.Access-Control-Request-Headers : 실제 요청의 추가 헤더<br>
+
+> **__Preflight Response__**
+1.Access-Control-Allow-Origin : 허가 출처 <br>
+2.Access-Control-Allow-Methods : 허가 메서드 <br>
+3.Access-Control-Allow-Headers : 허가 헤더 <br>
+4.Access-Control-Max-Age : Preflight 응답 캐시 시간 <br>
+여기서 Preflight Response의 응답 코드는 200대여야하고 Body는 비어있는 것이 좋다.<br>
+
+-----
+> ❗️**__인증 요청(Credentialed Request)__** <br>
+> 인증 관련 헤더를 포함할 때 사용하는 요청이다.
+> 1. 클라이언트 : 쿠키 또는 JWT 토큰을 담아 보낼 경우 credentials : include 를 포함하여 보낸다.
+> 2. 서버 : ccess-Control-Allow-Credentials : true 해야 클라이언트의 인증 포함 요청에 허용이 가능하다.
+
 -----
 
+> ❗️ **__CORS__** <br>
+> CORS 해결 방법에는 세 가지가 있다.
+> 
 
-> ❗️ ORM 사용 이유 <br>
-> **__1. 객체 지향 프로그래밍은 클래스를 이용하고 관계형 데이터베이스는 테이블을 이용하는데 객체 모델과 관계형 모델 간의 불일치가 존재한다.__**<br>
-> **__2. ORM을 이용해서 데이터베이스 접근을 프로그래밍 언어의 관점에서 맞출 수 있다.__**<br>
-> **__3. ORM을 이용해서 객체 간의 관계를 바탕으로 SQL을 자동으로 생성하여 불일치를 해결한다.__**<br>
-> **__4. ORM을 이용해서 객체를 통해 간접적으로 데이터베이스를 다룬다.__**<br>
-> **__5. 이를 통해 데이터베이스 세계와 프로그래밍 언어 사이의 개념의 간극을 줄여준다.__**<br>
-> **__6. 이를 통해 느슨하게 연결된, 테스트에 용이한 어플리케이션을 만들 수 있다.__**<br>
-------
------
-> ❗️ ORM 장점 <br>
-> **__1. 직관적인 코드(가독성) + 비지니스 로직 집중 가능(생산성)__**<br>
-> **__2. 재사용 및 유지보수 편리성 증가__**<br>
-> **__3. DBMS에 대한 종속성 저하__**<br>
-------
------
-> ❗️ ORM 단점 <br>
-> **__1. 사용하기는 편리하지만 설계는 신중하게 해야한다.__**<br>
-> **__2. 프로젝트의 복잡성이 커질 경우 난이도 또한 올라간다.__**<br>
-> **__3. 잘못 구현된 경우 일관성이 무너지는 문제점이 생길 수 있다.__**<br>
-------
-
-
-## ❓ [SQL (Structured Query Language, 구조적 질의 언어)] 
-- 📌 SQL은 관계형 데이터베이스 시스템(RDBMS)을 제어하는 컴퓨터 언어이다.<br>
-- 일반적인 프로그래밍 언어(범용 언어)와 달리 대화식 언어이기 때문에, 명령문이 짧고 간결하다.<br>
-- SQL 자체는 범용 언어에 비해 한계가 있기 때문에, 단독으로 사용하기 보단 다른 고수준 언어와 함께 쓰는 것이 일반적이다.<br>
------
-> ❗️SQL 쿼리 문의 분류 <br>
-> **__1. DDL (Data Definition Language, 데이터 정의어) / 오브젝트를 생성,삭제,변경하는 역할 (CREATE, DROP, ALTER)__**<br>
-> **__2. DML (Data Maipulation Language, 데이터 조작어) / DB를 조회,삽입,삭제,변경하는 역할 (SELECT, INSERT, UPDATE...)__**<br> 
-> **__3. DCL (Data Control Language, 데이터 제어어) / 사용자의 권한을 관리하는 역할 (GRANT, DENY, REVOKE)__**<br>
-> **__일반적인 언어의 중요도는 DML > DDL > DCL 순입니다.__**
------
-
-
-## ❓ [MVC (Model - View - Controller)]
-- 📌 MVC란 어플리케이션의 역할을 Model - View - Controller 세 가지 역할로 구분한 개발 방법론이다.<br>
-- MVC 패턴을 성공적으로 사용하면, 사용자 인터페이스로부터 비지니스 로직을 분리하여 어플리케이션의 시각적 요소나 그 이면에서 실행되는 비지니스 로직을 서로 영향 없이 쉽게 고칠 수 있다.<br>
-- MVC 패턴은 모델1 방식과 모델2 방식이 있는데, 모델1 방식은 Controller 영역에 View 영역을 같이 구현하는 방식이다.<br>
+- 모델2 방식은 View Model Controller 가 각각 구분되어 있는 모델이다. HTML 소스와 Java 소스를 분리시켜놓았기때문에 모델1 방식에 비해 확장시키고 유지보수하기 쉽다.ㅂㅏㅇ법에는
 - 모델2 방식은 View Model Controller 가 각각 구분되어 있는 모델이다. HTML 소스와 Java 소스를 분리시켜놓았기때문에 모델1 방식에 비해 확장시키고 유지보수하기 쉽다.
------
-MVC 패턴 및 간단한 설명<br>
-[개인블로그](https://rio0205.tistory.com/7)
------
