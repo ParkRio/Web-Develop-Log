@@ -36,17 +36,16 @@ text/plain <br>
 > 사전 요청은 OPTIONS 메서드를 통해 다른 도메인 리소스에 요청이 가능한지 확인하는 작업이다. <br>
 > 요청이 가능한 것을 확인하면 실제 요청을 보낸다.<br>
 > **__Preflight Request__**<br>
->
-1.Origin : 요청 출처<br>
-2.Access-Control-Request-Method : 실제 요청의 메서드<br>
-3.Access-Control-Request-Headers : 실제 요청의 추가 헤더<br>
+> 1.Origin : 요청 출처<br>
+> 2.Access-Control-Request-Method : 실제 요청의 메서드<br>
+> 3.Access-Control-Request-Headers : 실제 요청의 추가 헤더<br>
 
-> **__Preflight Response__**
-1.Access-Control-Allow-Origin : 허가 출처 <br>
-2.Access-Control-Allow-Methods : 허가 메서드 <br>
-3.Access-Control-Allow-Headers : 허가 헤더 <br>
-4.Access-Control-Max-Age : Preflight 응답 캐시 시간 <br>
-여기서 Preflight Response의 응답 코드는 200대여야하고 Body는 비어있는 것이 좋다.<br>
+> **__Preflight Response__** <br>
+> 1.Access-Control-Allow-Origin : 허가 출처 <br>
+> 2.Access-Control-Allow-Methods : 허가 메서드 <br>
+> 3.Access-Control-Allow-Headers : 허가 헤더 <br>
+> 4.Access-Control-Max-Age : Preflight 응답 캐시 시간 <br>
+> 여기서 Preflight Response의 응답 코드는 200대여야하고 Body는 비어있는 것이 좋다.<br>
 
 -----
 > ❗️**__인증 요청(Credentialed Request)__** <br>
