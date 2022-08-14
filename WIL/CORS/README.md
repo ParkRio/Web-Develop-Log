@@ -20,14 +20,23 @@
 > 교차 출처 리소스 공유는 추가 HTTP 헤더를 사용하여, 한 출처에서 실행 중인 웹 어플리케이션이<br>
 > 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에게 알려주는 체제이다.<br>
 - CORS 접근제어에 사용되는 3가지의 시나리오가 있다.<br>
-> **__단순 요청(Simple Request)__** <br>
+-----
+> ❗️**__단순 요청(Simple Request)__** <br>
 > Preflight 요청 없이 바로 요청을 보낸다. Simple Request는 아래와 같은 조건을 만족해야한다. <br>
-> 메서드 : GET, POST, HEAD <br>
-Content-Type은 아래 셋 중 하나여야 한다.<br>
-  application/x-www-form-urlencoded <br>
-  multipart/form-data <br>
-  text/plain <br>
-헤더 : Accept, Accept-Language, Content-Language, Content-Type 만 허용 한다. <br>
+> **__메서드 : GET, POST, HEAD__** <br>
+**__Content-Type은 아래 셋 중 하나여야 한다.__**<br>
+application/x-www-form-urlencoded <br>
+multipart/form-data <br>
+text/plain <br>
+**__헤더 : Accept, Accept-Language, Content-Language, Content-Type 만 허용 한다.__** <br>
+-----
+> ❗️**__사전 요청(Preflight Request)__** <br>
+> 사전 요청은 OPTIONS 메서드를 통해 다른 도메인 리소스에 요청이 가능한지 확인하는 작업이다. <br>
+> 요청이 가능한 것을 확인하면 실제 요청을 보낸다.<br>
+> **__Preflight Request__**<br>
+> Origin : 요청 출처<br>
+Access-Control-Request-Method : 실제 요청의 메서드<br>
+Access-Control-Request-Headers : 실제 요청의 추가 헤더<br>
 -----
 
 
