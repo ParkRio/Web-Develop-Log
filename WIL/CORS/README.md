@@ -22,12 +22,12 @@
 - CORS 접근제어에 사용되는 3가지의 시나리오가 있다.<br>
 > **__단순 요청(Simple Request)__** <br>
 > Preflight 요청 없이 바로 요청을 보낸다. Simple Request는 아래와 같은 조건을 만족해야한다. <br>
-> 1. 메서드 : GET, POST, HEAD <br>
-> 2.Content-Type은 아래 셋 중 하나여야 한다.<br>
+> 메서드 : GET, POST, HEAD <br>
+Content-Type은 아래 셋 중 하나여야 한다.<br>
   application/x-www-form-urlencoded <br>
   multipart/form-data <br>
   text/plain <br>
-> 헤더 : Accept, Accept-Language, Content-Language, Content-Type 만 허용 한다. <br>
+헤더 : Accept, Accept-Language, Content-Language, Content-Type 만 허용 한다. <br>
 -----
 
 
