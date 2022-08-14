@@ -22,12 +22,12 @@
 - CORS 접근제어에 사용되는 3가지의 시나리오가 있다.<br>
 -----
 > ❗️**__단순 요청(Simple Request)__** <br>
-> Preflight 요청 없이 바로 요청을 보낸다. Simple Request는 아래와 같은 조건을 만족해야한다. <br>
-> **__메서드 : GET, POST, HEAD__** <br>
+> Preflight 요청 없이 바로 요청을 보낸다. Simple Request는 아래와 같은 조건을 만족해야한다. <br><br>
+> **__메서드 : GET, POST, HEAD__** <br><br>
 **__Content-Type은 아래 셋 중 하나여야 한다.__**<br>
 application/x-www-form-urlencoded <br>
 multipart/form-data <br>
-text/plain <br>
+text/plain <br><br>
 **__헤더 : Accept, Accept-Language, Content-Language, Content-Type 만 허용 한다.__** <br>
 
 -----
@@ -35,23 +35,23 @@ text/plain <br>
 > ❗️**__사전 요청(Preflight Request)__** <br>
 > 사전 요청은 OPTIONS 메서드를 통해 다른 도메인 리소스에 요청이 가능한지 확인하는 작업이다. <br>
 > 요청이 가능한 것을 확인하면 실제 요청을 보낸다.<br>
-> **__Preflight Request__**<br>
+> **__Preflight Request__**<br><br>
 > 1.Origin : 요청 출처<br>
 > 2.Access-Control-Request-Method : 실제 요청의 메서드<br>
-> 3.Access-Control-Request-Headers : 실제 요청의 추가 헤더<br>
+> 3.Access-Control-Request-Headers : 실제 요청의 추가 헤더<br><br>
 
-> **__Preflight Response__** <br>
+> **__Preflight Response__** <br><br>
 > 1.Access-Control-Allow-Origin : 허가 출처 <br>
 > 2.Access-Control-Allow-Methods : 허가 메서드 <br>
 > 3.Access-Control-Allow-Headers : 허가 헤더 <br>
 > 4.Access-Control-Max-Age : Preflight 응답 캐시 시간 <br>
-> 여기서 Preflight Response의 응답 코드는 200대여야하고 Body는 비어있는 것이 좋다.<br>
+> 여기서 Preflight Response의 응답 코드는 200대여야하고 Body는 비어있는 것이 좋다.<br><br>
 
 -----
 > ❗️**__인증 요청(Credentialed Request)__** <br>
-> 인증 관련 헤더를 포함할 때 사용하는 요청이다.
-> 1. 클라이언트 : 쿠키 또는 JWT 토큰을 담아 보낼 경우 credentials : include 를 포함하여 보낸다.
-> 2. 서버 : ccess-Control-Allow-Credentials : true 해야 클라이언트의 인증 포함 요청에 허용이 가능하다.
+> 인증 관련 헤더를 포함할 때 사용하는 요청이다.<br><br>
+> 1. 클라이언트 : 쿠키 또는 JWT 토큰을 담아 보낼 경우 credentials : include 를 포함하여 보낸다.<br>
+> 2. 서버 : ccess-Control-Allow-Credentials : true 해야 클라이언트의 인증 포함 요청에 허용이 가능하다.<br>
 
 -----
 
